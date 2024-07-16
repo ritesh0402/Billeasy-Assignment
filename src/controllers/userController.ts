@@ -2,7 +2,7 @@ import UserModel from '../models/UserModel'
 
 
 const getUser = async (req: any, res: any) => {
-   const { role, active = true, page = 1, limit = 10, sort = 1 } = req.params
+   const { role, active = true, page = 1, limit = 10, sort = 1 } = req.query
 
    try {
       const matchUser: any = {};

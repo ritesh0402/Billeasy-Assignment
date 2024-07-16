@@ -27,7 +27,7 @@ Install all dependencies
 Used to get all users\
 -> Method: Get\
 -> Route: '/users'\
--> Request Params: {role: string, active: boolean, page: number, limit: number, sort: boolean }\
+-> Request Query String: {role: string, active: boolean, page: number, limit: number, sort: boolean }\
 -> Response: {status: string, error:string, data:array of users object, msg:string}\
 
 ### Product Endpoint

@@ -10,8 +10,8 @@ import productRouter from './routers/productRouter'
 const app = express();
 
 // middlewares
-app.use(helmet())
-app.use(cors({ credentials: true }))
+app.use(helmet()) // Used to protect app from attacks like XSS
+app.use(cors({ credentials: true })) // Used to protect app from attacks like Cross Origin HTTP request
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
