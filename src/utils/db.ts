@@ -3,6 +3,7 @@ import 'dotenv/config'
 
 const MONGO_URI: string | undefined = process.env.MONGO_URI
 
+// function to connect to mongodb
 const connectToMongo = async () => {
    try {
       mongoose.connect(MONGO_URI as string);
