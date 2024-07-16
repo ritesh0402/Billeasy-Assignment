@@ -2,7 +2,7 @@ import UserModel from '../models/UserModel'
 
 
 const getUser = async (req: any, res: any) => {
-   const { role, active = true, page = 1, limit = 10, sort } = req.params
+   const { role, active = true, page = 1, limit = 10, sort = 1 } = req.params
 
    try {
       // aggregate function to retrieve data from mongo
@@ -13,9 +13,9 @@ const getUser = async (req: any, res: any) => {
             ]
          },
       },
+      { $sort: { created_at: sort, name: sort } },
       { $skip: page * limit },
-      { $limit: limit },
-      { $sort: { created_at: 1, name: 1 } }
+      { $limit: limit }
       ])
          .then(users => {
             // if users were successfully retrieved from mongo

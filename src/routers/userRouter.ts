@@ -8,7 +8,7 @@ const router = express.Router()
 router.use(authCheck.authenticationCheck)
 
 // routes
-router.get('/', userReqValidator.getUserReqValidator, authCheck.adminCheck, userController.getUser)
+router.get('/', userReqValidator.getUserReqValidator, authCheck.adminCheck, userController.getUser) // authorization implemented so only admin can access all users
 
 
 

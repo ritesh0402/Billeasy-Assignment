@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 require('dotenv').config()
-console.log('mongodb://localhost:27017/')
 const { Schema } = mongoose;
 const roleSchema = new Schema({
    name: { type: String, unique: true }
@@ -41,7 +40,7 @@ const UserActivity = mongoose.model('UserActivity',
 const Customer = mongoose.model('Customer', customerSchema);
 const Order = mongoose.model('Order', orderSchema);
 const Product = mongoose.model('Product', productSchema);
-mongoose.connect('mongodb://localhost:27017/', {
+mongoose.connect(process.env.MONGODB_URI, {
    useNewUrlParser: true,
    useUnifiedTopology: true
 });

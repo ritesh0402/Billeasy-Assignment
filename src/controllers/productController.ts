@@ -1,7 +1,7 @@
 import ProductModel from "../models/ProductModel";
 
 const postProduct = async (req: any, res: any) => {
-   const { name, description, catagory, price, available = true } = req.body
+   const { name, description, catagory, price, available = true, approvalCode = "" } = req.body
    try {
       //creating new product and saving it to mongodb
       const newProduct = await ProductModel.create({
@@ -9,7 +9,8 @@ const postProduct = async (req: any, res: any) => {
          description: description,
          catagory: catagory,
          price: price,
-         available: available
+         available: available,
+         approval_code: approvalCode
       })
 
       // if product was not created

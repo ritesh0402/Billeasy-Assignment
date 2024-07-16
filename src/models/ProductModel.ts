@@ -5,7 +5,8 @@ const productSchema = new Schema({
    category: String,
    price: Number,
    available: { type: Boolean, default: true },
-   created_at: { type: Date, default: Date.now }
+   created_at: { type: Date, default: Date.now },
+   approval_code: { type: String }
 });
 
 export default mongoose.model('Product', productSchema);
