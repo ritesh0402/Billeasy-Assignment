@@ -10,6 +10,7 @@ const authenticationCheck = async (req: any, res: any, next: NextFunction) => {
       const bearer = header.split(' ');
       const token = bearer[1];
       try {
+         // verifying jwt token
          jwt.verify(token, process.env.JWT_SECRET!, async (err: any, data: any) => {
             if (err) {
                console.log(err);
@@ -40,6 +41,7 @@ const authenticationCheck = async (req: any, res: any, next: NextFunction) => {
 const adminCheck = async (req: any, res: any, next: NextFunction) => {
    const userId = req.token.userId;
 
+   // check if user exists and is admin
    const user = await UserModel.findOne({ id: userId })
    if (!user || user.role !== 'admin') {
       return res.status(404).send({ status: "Failed", data: "", error: "Access Denied!", msg: "Authentication Failed!" });

@@ -24,17 +24,17 @@ Install all dependencies
 
 ## Endpoints
 ### User Endpoint
-Used to get all users
--> Method: Get
--> Route: '/users'
--> Request Params: {role: string, active: boolean, page: number, limit: number, sort: boolean }
--> Response: {status: string, error:string, data:array of users object, msg:string}
+Used to get all users\
+-> Method: Get\
+-> Route: '/users'\
+-> Request Params: {role: string, active: boolean, page: number, limit: number, sort: boolean }\
+-> Response: {status: string, error:string, data:array of users object, msg:string}\
 
 ### Product Endpoint
-Used to add product to the database.
--> Method: Post
--> Route: '/products'
--> Request Body: {name: string, description: string, catagory: string, price: number, available: boolean}
+Used to add product to the database.\
+-> Method: Post\
+-> Route: '/products'\
+-> Request Body: {name: string, description: string, catagory: string, price: number, available: boolean}\
 -> Response: {status: string, error:string, data:product object, msg:string}
 
 

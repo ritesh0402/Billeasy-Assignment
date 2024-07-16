@@ -13,6 +13,9 @@ const postProductReqValidator = [
       if (!errors.isEmpty()) {
          return res.status(400).send({ status: "Failed", data: "", error: errors.array()[0].msg, msg: "Request validation failed!" });
       }
+      if (req.body.price > 1000 && !req.body.approvalCode) {
+         return res.status(400).send({ status: "Failed", data: "", error: "approvalCode is required for products with price > 1000", msg: "Request validation failed!" });
+      }
       next()
    }
 ]

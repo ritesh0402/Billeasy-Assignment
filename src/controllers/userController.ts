@@ -5,15 +5,18 @@ const getUser = async (req: any, res: any) => {
    const { role, active = true, page = 1, limit = 10, sort = 1 } = req.params
 
    try {
+      const matchUser: any = {};
+      if (role) {
+         matchUser.role = role; // Filter by role if role query parameter is provided
+      }
+      if (active !== undefined) {
+         matchUser.active = active === 'true'; // Filter by active status if active query parameter is provided
+      }
       // aggregate function to retrieve data from mongo
       UserModel.aggregate([{
-         $match: {
-            $and: [
-               { $role: role }, { $active: active },
-            ]
-         },
+         $match: matchUser
       },
-      { $sort: { created_at: sort, name: sort } },
+      { $sort: { createdAt: sort, name: sort } }, // sorting before pagination because this will make sure the results are globally sorted and not locally
       { $skip: page * limit },
       { $limit: limit }
       ])
